@@ -1,16 +1,38 @@
 ﻿@page "/buttontest"
 @page "/buttons"
+@using MealOrdering.Client.Utils
 
-<h3>ButtonTest</h3>
+
+@inject DialogService _dialogService;
+@inject ModalManager _modalManager;
+
+<h3>@title</h3>
 
 <div class="form-group">
     <div class="container">
         <div class="btn-toolbar">
-            <CustomEditButtonComponent Caption="Edit Caption" Color="danger" Icon="pencil" IsSmall="false" />
+
+            <CustomEditButtonComponent OnClick="ChangeTitle" Caption="@title" />
+
+            <CustomEditButtonComponent Caption="Edit Caption" Color="danger" Icon="pencil" IsSmall="false" OnClick="ShowConfirmation" />
         </div>
     </div>
 </div>
 
 @code {
 
+    private string title = "";
+
+    private async Task ChangeTitle()
+    {
+        await _modalManager.ShowMessageAsync("Show Message Title", "Kayıt Silindi!", 100);
+        // title = "Counter";
+        // await _dialogService.OpenAsync<ShowMessagePopupComponent>("Counter",new(){ {"Message","Bu bir test popup denemesidir." }});
+    }
+    async Task ShowConfirmation()
+    {
+        bool res = await _modalManager.ConfirmationAsync("Confirmation", "Are you sure that it will be deleted!");
+        title = res ? "Yes just clicked" : "No just clicked";
+
+    }
 }

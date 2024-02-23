@@ -1,0 +1,33 @@
+﻿
+@inject DialogService _dialogService;
+
+@code {
+    [Parameter]
+    public string Caption { get; set; }
+
+    [Parameter]
+    public string Message { get; set; }
+
+    [Parameter]
+    public string OkText { get; set; }
+
+    [Parameter]
+    public string CancelText { get; set; }
+
+    [Parameter]
+    public string YesText { get; set; }
+
+    [Parameter]
+    public string NoText { get; set; }
+
+
+    protected void ConfirmClicked()
+    {
+        _dialogService.Close(true);
+    }
+    protected void CancelClicked()
+    {
+        _dialogService.Close(false);
+    }
+
+}
