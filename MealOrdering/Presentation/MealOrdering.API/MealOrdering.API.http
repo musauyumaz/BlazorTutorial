@@ -1,4 +1,4 @@
-@MealOrdering.API_HostAddress = http://localhost:5220
+@MealOrdering.API_HostAddress = http://localhost:5162
 
 GET {{MealOrdering.API_HostAddress}}/weatherforecast/
 Accept: application/json
