@@ -7,7 +7,7 @@ namespace Application
     {
         public static void AddApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(options => options.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediator(options => options.ServiceLifetime = ServiceLifetime.Scoped);
         }
     }
 }

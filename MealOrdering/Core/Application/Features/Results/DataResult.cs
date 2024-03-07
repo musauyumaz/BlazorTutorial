@@ -1,6 +1,6 @@
 ﻿namespace Application.Features.Results
 {
-    public class DataResult<T> : IDataResult<T> where T : class, new()
+    public class DataResult<T> : IDataResult<T> where T : class
     {
         public DataResult(string message, bool isSucceeded, T data) : this(isSucceeded, data)
         {

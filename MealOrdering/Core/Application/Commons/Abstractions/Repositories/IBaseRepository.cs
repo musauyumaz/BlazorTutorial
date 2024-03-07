@@ -1,11 +1,11 @@
 ﻿using Domain.Entities.Commons;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Abstractions.Repositories;
+namespace Application.Commons.Abstractions.Repositories;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {
-    DbSet<T> Table { get;}
+    DbSet<T> Table { get; }
     Task<T> GetAsync(Guid id);
     Task<IQueryable<T>> GetAllAsync();
     Task<T> AddAsync(T entity);

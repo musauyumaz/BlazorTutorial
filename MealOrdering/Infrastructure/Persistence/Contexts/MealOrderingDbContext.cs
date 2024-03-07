@@ -1,5 +1,7 @@
 ﻿using Domain.Entities;
+using Domain.Entities.Commons;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Persistence.Contexts
 {
@@ -12,5 +14,13 @@ namespace Persistence.Contexts
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            IEnumerable<EntityEntry<BaseEntity>>? datas =  ChangeTracker.Entries<BaseEntity>();
+
+
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
     }
 }
