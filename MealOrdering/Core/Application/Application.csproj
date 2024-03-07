@@ -7,17 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Handlers\QueryHandlers\" />
-    <Folder Include="Features\DTOs\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mediator.Abstractions" Version="2.1.7" />
+    <PackageReference Include="Mediator.SourceGenerator" Version="2.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Commands\1\Entitys\Create\" />
+    <Folder Include="Features\Commands\1\Entitys\Delete\" />
+    <Folder Include="Features\Commands\1\Entitys\Update\" />
+    <Folder Include="Features\Queries\1\GetAll\" />
+    <Folder Include="Features\Queries\1\GetById\" />
   </ItemGroup>
 
 </Project>
