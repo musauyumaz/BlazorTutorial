@@ -6,7 +6,7 @@ using Mediator;
 
 namespace Application.Features.Commands.Suppliers.Create;
 
-public record CreateSupplierCommandRequest(string Name, string WebURL) : IRequest<IDataResult<SupplierDTO>>;
+public record CreateSupplierCommandRequest(string Name, string WebUrl) : IRequest<IDataResult<SupplierDTO>>;
 
 public class CreateSupplierCommandHandler(ISupplierRepository _supplierRepository) : IRequestHandler<CreateSupplierCommandRequest, IDataResult<SupplierDTO>>
 {

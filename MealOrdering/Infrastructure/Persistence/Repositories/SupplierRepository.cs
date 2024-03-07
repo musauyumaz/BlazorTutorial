@@ -16,7 +16,7 @@ namespace Persistence.Repositories
         {
             Supplier? deletedEntity = await GetAsync(id);
             deletedEntity.IsActive = false;
-            return deletedEntity;
+            return await UpdateAsync(deletedEntity);
         }
 
         public async Task<IQueryable<Supplier>> GetAllAsync()
