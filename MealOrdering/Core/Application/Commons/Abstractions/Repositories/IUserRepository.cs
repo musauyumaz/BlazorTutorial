@@ -2,8 +2,6 @@
 
 namespace Application.Commons.Abstractions.Repositories;
 
-public interface IUserRepository
+public interface IUserRepository : IBaseRepository<User>
 {
-    Task<User> CreateAsync(User user);
-    Task UpdatePasswordAsync(string email);
 }

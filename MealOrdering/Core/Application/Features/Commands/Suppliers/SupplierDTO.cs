@@ -1,6 +1,6 @@
 ﻿namespace Application.Features.Commands.Suppliers;
 
-public record SupplierDTO(string Id, string Name, string WebURL, bool IsActive, DateTime UpdatedDate);
+public record SupplierDTO(string Id, string Name, string WebUrl, bool IsActive, DateTime CreatedDate);
 
 
 

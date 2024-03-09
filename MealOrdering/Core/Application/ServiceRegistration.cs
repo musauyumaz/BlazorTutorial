@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Mapster;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Application
@@ -8,6 +9,7 @@ namespace Application
         public static void AddApplicationServices(this IServiceCollection services)
         {
             services.AddMediator(options => options.ServiceLifetime = ServiceLifetime.Scoped);
+            TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -21,11 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\1\Entitys\Create\" />
-    <Folder Include="Features\Commands\1\Entitys\Delete\" />
-    <Folder Include="Features\Commands\1\Entitys\Update\" />
-    <Folder Include="Features\Queries\1\GetAll\" />
-    <Folder Include="Features\Queries\1\GetById\" />
+    <Folder Include="Commons\Configs\" />
   </ItemGroup>
 
 </Project>
