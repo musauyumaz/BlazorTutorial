@@ -1,10 +1,10 @@
-﻿using Application.Features.Commands.Orders;
-using Application.Features.Commands.Orders.Create;
-using Application.Features.Commands.Orders.Delete;
-using Application.Features.Commands.Orders.Update;
-using Application.Features.Queries.Orders.GetAll;
-using Application.Features.Queries.Orders.GetById;
-using Application.Features.Results;
+﻿using Application.Commons.Results;
+using Application.Features.Orders.Commands.Create;
+using Application.Features.Orders.Commands.Delete;
+using Application.Features.Orders.Commands.Update;
+using Application.Features.Orders.DTOs;
+using Application.Features.Orders.Queries.GetAll;
+using Application.Features.Orders.Queries.GetById;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 

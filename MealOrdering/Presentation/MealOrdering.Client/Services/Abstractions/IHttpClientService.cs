@@ -2,7 +2,7 @@
 
 namespace MealOrdering.Client.Services.Abstractions;
 
-public interface IHttpClientService<TResponse> where TResponse : class, new()
+public interface IHttpClientService
 {
     Task<TResponse> GetAsync<TResponse>(RequestParameter requestParameter, string id = null);
     Task<TResponse> PostAsync<TRequest, TResponse>(RequestParameter requestParameter, TRequest body);

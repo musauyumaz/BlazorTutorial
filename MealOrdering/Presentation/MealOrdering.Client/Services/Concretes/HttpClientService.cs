@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace MealOrdering.Client.Services.Concretes;
 
-public class HttpClientService<T> : IHttpClientService<T> where T : class, new()
+public class HttpClientService<T> : IHttpClientService
 {
     private readonly HttpClient _httpClient;
     private readonly IConfiguration _configuration;
@@ -57,6 +57,5 @@ public class HttpClientService<T> : IHttpClientService<T> where T : class, new()
         urlBuilder.Append(!String.IsNullOrEmpty(requestParameter.Action) ? requestParameter.Action : "");
         urlBuilder.Append((!String.IsNullOrEmpty(requestParameter.QueryString) ? "?" + requestParameter.QueryString : "/"));
         return !String.IsNullOrEmpty(requestParameter.FullEndPoint) ? requestParameter.FullEndPoint : urlBuilder.ToString();
-
     }
 }

@@ -1,10 +1,10 @@
-﻿using Application.Features.Commands.OrderItems;
-using Application.Features.Commands.OrderItems.Create;
-using Application.Features.Commands.OrderItems.Delete;
-using Application.Features.Commands.OrderItems.Update;
-using Application.Features.Queries.OrderItems.GetAll;
-using Application.Features.Queries.OrderItems.GetById;
-using Application.Features.Results;
+﻿using Application.Commons.Results;
+using Application.Features.OrderItems.Commands.Create;
+using Application.Features.OrderItems.Commands.Delete;
+using Application.Features.OrderItems.Commands.Update;
+using Application.Features.OrderItems.DTOs;
+using Application.Features.OrderItems.Queries.GetAll;
+using Application.Features.OrderItems.Queries.GetById;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 

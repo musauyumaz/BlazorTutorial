@@ -1,10 +1,10 @@
-﻿using Application.Features.Commands.Suppliers;
-using Application.Features.Commands.Suppliers.Create;
-using Application.Features.Commands.Suppliers.Delete;
-using Application.Features.Commands.Suppliers.Update;
-using Application.Features.Queries.Suppliers.GetAll;
-using Application.Features.Queries.Suppliers.GetById;
-using Application.Features.Results;
+﻿using Application.Commons.Results;
+using Application.Features.Suppliers.Commands.Create;
+using Application.Features.Suppliers.Commands.Delete;
+using Application.Features.Suppliers.Commands.Update;
+using Application.Features.Suppliers.DTOs;
+using Application.Features.Suppliers.Queries.GetAll;
+using Application.Features.Suppliers.Queries.GetById;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 
