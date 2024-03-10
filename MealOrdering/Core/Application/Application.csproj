@@ -22,6 +22,13 @@
 
   <ItemGroup>
     <Folder Include="Commons\Configs\" />
+    <Folder Include="Features\Entities\Commands\Create\" />
+    <Folder Include="Features\Entities\Commands\Delete\" />
+    <Folder Include="Features\Entities\Commands\Update\" />
+    <Folder Include="Features\Entities\Mappings\" />
+    <Folder Include="Features\Entities\DTOs\" />
+    <Folder Include="Features\Entities\Queries\GetAll\" />
+    <Folder Include="Features\Entities\Queries\GetById\" />
   </ItemGroup>
 
 </Project>
