@@ -1,6 +1,4 @@
-﻿using MealOrdering.Client.Models.Common;
-
-namespace MealOrdering.Client.Services.Abstractions;
+﻿namespace MealOrdering.Client.Services.Commons;
 
 public interface IHttpClientService
 {

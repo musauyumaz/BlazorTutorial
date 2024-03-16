@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities.Commons
 {
-    public abstract class BaseEntity : IUpdatedDate, IIsActive
+    public abstract class BaseEntity : IUpdatedDate, IIsActive, ICreatedDate
     {
         public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }

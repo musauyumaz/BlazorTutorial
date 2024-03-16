@@ -12,7 +12,7 @@ namespace Application
             services.AddMediator(options => options.ServiceLifetime = ServiceLifetime.Scoped);
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
 
-            services.AddScoped<UserBusinessRules>();
+            //services.AddScoped<UserBusinessRules>();
         }
     }
 }

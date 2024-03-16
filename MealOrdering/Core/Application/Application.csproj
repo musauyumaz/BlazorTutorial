@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Commons\Configs\" />
+    <Folder Include="Features\Auths\Mappings\" />
+    <Folder Include="Features\Auths\Queries\" />
     <Folder Include="Features\Entities\Commands\Create\" />
     <Folder Include="Features\Entities\Commands\Delete\" />
     <Folder Include="Features\Entities\Commands\Update\" />

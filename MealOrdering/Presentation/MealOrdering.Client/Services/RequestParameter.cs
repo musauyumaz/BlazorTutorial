@@ -4,9 +4,12 @@ namespace MealOrdering.Client.Services
 {
     public class RequestParameter
     {
-        public RequestParameter(string? controller, string? action)
+        public RequestParameter(string controller)
         {
             Controller = controller;
+        }
+        public RequestParameter(string controller, string? action) : this(controller)
+        {
             Action = action;
         }
         public string Controller { get; set; }

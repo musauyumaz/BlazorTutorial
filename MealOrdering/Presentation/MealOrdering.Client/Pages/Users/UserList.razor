@@ -1,0 +1,31 @@
+﻿@page "/userlist"
+@using MealOrdering.Client.Models.ViewModels.Users
+
+@inherits UserListProcess
+
+@if (UserViewModels != null)
+{
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserViewModel user in UserViewModels)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.FullName</td>
+                    <td>@user.EmailAddress</td>
+                    <td>@user.CreatedDate</td>
+                    <td>@user.IsActive</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
