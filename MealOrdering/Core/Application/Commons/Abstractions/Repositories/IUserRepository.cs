@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.Identity;
 
 namespace Application.Commons.Abstractions.Repositories;
 
-public interface IUserRepository : IBaseRepository<User>
-{
-}
+//public interface IUserRepository : IBaseRepository<AppUser>
+//{
+//}

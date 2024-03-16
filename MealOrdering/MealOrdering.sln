@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Core\Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealOrdering.API", "Presentation\MealOrdering.API\MealOrdering.API.csproj", "{5F144345-DBF2-4ABC-8707-4D9291777808}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure\Infrastructure.csproj", "{6AE43F95-EB6F-42B8-AD65-85D67AC02335}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5F144345-DBF2-4ABC-8707-4D9291777808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F144345-DBF2-4ABC-8707-4D9291777808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F144345-DBF2-4ABC-8707-4D9291777808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE43F95-EB6F-42B8-AD65-85D67AC02335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE43F95-EB6F-42B8-AD65-85D67AC02335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE43F95-EB6F-42B8-AD65-85D67AC02335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE43F95-EB6F-42B8-AD65-85D67AC02335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{44C74E88-768A-4C24-96CF-DAF9D06DA23D} = {6F024EB7-3660-4182-AB35-7CF0F920DACA}
 		{FA5ED3C8-1482-4C96-95A8-9128E2A0EFF2} = {6F024EB7-3660-4182-AB35-7CF0F920DACA}
 		{5F144345-DBF2-4ABC-8707-4D9291777808} = {1B922A2C-BF04-47A8-AF96-7C1DDBACE18E}
+		{6AE43F95-EB6F-42B8-AD65-85D67AC02335} = {FA4F45B2-7CB4-4D70-9050-6865F3A8C730}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E446D65-8E55-4CFC-AD38-42B2CB61D172}
