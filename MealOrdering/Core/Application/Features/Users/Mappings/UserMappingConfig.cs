@@ -8,7 +8,7 @@ namespace Application.Features.Users.Mappings
     {
         public void Register(TypeAdapterConfig config)
         {
-            config.NewConfig<AppUser, UserDTO>()
+            config.NewConfig<User, UserDTO>()
                 .Map(dest => dest.FullName, src => $"{src.FirstName} {src.LastName}");
         }
     }

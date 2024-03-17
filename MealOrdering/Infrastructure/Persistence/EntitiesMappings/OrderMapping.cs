@@ -11,9 +11,9 @@ namespace Persistence.EntitiesMappings
             builder.Property(o => o.Name).HasMaxLength(100);
             builder.Property(o => o.Description).HasMaxLength(1000);
 
-            builder.HasOne(o => o.CreateUser)
+            builder.HasOne(o => o.CreatedUser)
                 .WithMany(u => u.Orders)
-                .HasForeignKey(o => o.CreateUserId);
+                .HasForeignKey(o => o.CreatedUserId);
 
             builder.HasOne(o => o.Supplier)
                 .WithMany(s => s.Orders)

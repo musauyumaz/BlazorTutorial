@@ -5,7 +5,8 @@ namespace Application.Commons.Abstractions.ExtarnalServices.Tokens
 {
     public interface ITokenHandler
     {
-        TokenDTO CreateAccessToken(int second, AppUser user);
+        TokenDTO CreateAccessToken(User user);
+        string CreateRefreshToken();
     }
 }
 
