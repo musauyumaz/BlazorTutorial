@@ -1,17 +1,13 @@
 ﻿using Domain.Entities.Commons;
-using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entities.Identity
 {
-    public class AppUser : IdentityUser, IIsActive, IUpdatedDate
+    public class User : BaseEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string? RefreshToken { get; set; }
-        public DateTime? RefreshTokenEndDate { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime UpdatedDate { get; set; }
-
+        public string EmailAddress { get; set; }
+        public string Password { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }

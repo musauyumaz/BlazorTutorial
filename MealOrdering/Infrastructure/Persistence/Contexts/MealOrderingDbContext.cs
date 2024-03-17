@@ -1,17 +1,16 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Commons;
 using Domain.Entities.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Reflection.Emit;
 using System.Reflection;
 
 namespace Persistence.Contexts
 {
-    public class MealOrderingDbContext : IdentityDbContext<AppUser>
+    public class MealOrderingDbContext : DbContext
     {
-        public MealOrderingDbContext(DbContextOptions options) : base(options) {}
+        public MealOrderingDbContext(DbContextOptions<MealOrderingDbContext> options) : base(options) {}
+        public DbSet<User> Users { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }

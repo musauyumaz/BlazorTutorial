@@ -10,7 +10,7 @@ namespace Application.Features.Orders.Mappings
         {
             config.NewConfig<Order, OrderDTO>()
                 .Map(dest => dest.SupplierName, src => src.Supplier.Name)
-                .Map(dest => dest.CreateUserFullName, src => $"{src.CreateUser.FirstName} {src.CreateUser.LastName}");
+                .Map(dest => dest.CreateUserFullName, src => $"{src.CreatedUser.FirstName} {src.CreatedUser.LastName}");
         }
     }
 }
