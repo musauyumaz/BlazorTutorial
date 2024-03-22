@@ -11,6 +11,11 @@ namespace Application.Features.Auths.Rules
             User? user = await _userRepository.Table.FirstOrDefaultAsync(u => u.EmailAddress == emailAddress);
             if (user == null) throw new Exception("User Not Found");
         }
+
+        public async Task UserIsPassive(User user)
+        {
+            if (!user.IsActive) throw new Exception("User is Passive");
+        }
     }
 }
 

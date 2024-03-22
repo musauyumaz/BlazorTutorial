@@ -15,9 +15,9 @@ public class LoginUserCommandHandler(IUserRepository _userRepository, ITokenHand
     public async ValueTask<IDataResult<TokenDTO>> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
     {
         await _authBusinessRules.UserNotFoundAsync(request.EmailOrUsername);
-
         User? user = await _userRepository.Table.FirstOrDefaultAsync(u => u.EmailAddress == request.EmailOrUsername);
-        TokenDTO token = _tokenHandler.CreateAccessToken(user);
+        await _authBusinessRules.UserIsPassive(user!);
+        TokenDTO token = _tokenHandler.CreateAccessToken(user!);
         return new DataResult<TokenDTO>(true, token);
     }
 }

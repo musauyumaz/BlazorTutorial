@@ -18,9 +18,15 @@ namespace Infrastructure.Services.Tokens
             SigningCredentials? credentials = new(securityKey, SecurityAlgorithms.HmacSha256);
             DateTime expiry = DateTime.Now.AddDays(int.Parse(_configuration["JwtToken:ExpiryInDays"]));
 
+            StringBuilder stringBuilder = new();
+            stringBuilder.Append(user.FirstName);
+            stringBuilder.Append(" ");
+            stringBuilder.Append(user.LastName);
+
             Claim[]? claims = new[]
             {
-                new Claim(ClaimTypes.Email, user.EmailAddress)
+                new Claim(ClaimTypes.Email, user.EmailAddress),
+                new Claim(ClaimTypes.Name,stringBuilder.ToString())
             };
 
             JwtSecurityToken? token = new(issuer: _configuration["JwtToken:Issuer"], audience: _configuration["JwtToken:Audience"], claims: claims, expires: expiry);
