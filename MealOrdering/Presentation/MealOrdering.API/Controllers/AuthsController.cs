@@ -1,6 +1,5 @@
 ﻿using Application.Commons.Results;
 using Application.Features.Auths.Commands;
-using Application.Features.Auths.DTOs;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +12,7 @@ namespace MealOrdering.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Get(LoginUserCommandRequest loginUserCommandRequest)
         {
-            IDataResult<TokenDTO>? response = await _mediator.Send(loginUserCommandRequest);
+            IDataResult<LoginUserCommandResponse>? response = await _mediator.Send(loginUserCommandRequest);
             return Ok(response);
         }
     }
