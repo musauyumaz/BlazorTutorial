@@ -40,7 +40,6 @@ public class HttpClientService : IHttpClientService
         HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync(url, body);
         return await httpResponseMessage.Content.ReadFromJsonAsync<TResponse>();
     }
-
     public async Task<TResponse> PutAsync<TRequest, TResponse>(RequestParameter requestParameter, TRequest body)
     {
         string url = Url(requestParameter);
