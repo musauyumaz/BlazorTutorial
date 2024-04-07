@@ -17,14 +17,11 @@ public class LoginUserCommandHandler(IUserRepository _userRepository, ITokenHand
 {
     public async ValueTask<IDataResult<LoginUserCommandResponse>> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
     {
-        await _authBusinessRules.UserNotFoundAsync(request.EmailOrUsername);
-
         //string? encryptedPassword = PasswordEncrypter.Encrypt(request.Password);
-
+        await _authBusinessRules.UserPasswordOrEmailAddressNotFound(request.EmailOrUsername,request.Password);
         User? user = await _userRepository.Table.FirstOrDefaultAsync(u => u.EmailAddress == request.EmailOrUsername && u.Password == request.Password);
-
-        await _authBusinessRules.UserIsPassive(user);
-        TokenDTO token = _tokenHandler.CreateAccessToken(user);
+        await _authBusinessRules.UserIsPassive(user!);
+        TokenDTO token = _tokenHandler.CreateAccessToken(user!);
         return new DataResult<LoginUserCommandResponse>(true, new(token, user.Adapt<UserDTO>()));
     }
 }

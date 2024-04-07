@@ -1,8 +1,56 @@
 ﻿@page "/login"
 @layout MealOrdering.Client.Layout.EmptyLayout
 
-<h3>Login</h3>
+@inject IAuthService _authService
+@inject ModalManager _modalManager;
+@inject NavigationManager _navigationManager;
+
+
+<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <RadzenTemplateForm TItem="LoginUserViewModel" Data=@model Submit=@LoginAsync>
+                <RadzenStack Gap="1rem" Class="rz-p-sm-12">
+                    <RadzenFormField Text="Email">
+                        <ChildContent>
+                            <RadzenTextBox Name="Email" @bind-Value=@model.EmailOrUsername />
+                        </ChildContent>
+                        <Helper>
+                            <RadzenRequiredValidator Component="Email" Text="Email is required." />
+                        </Helper>
+                    </RadzenFormField>
+                    <RadzenFormField Text="Password">
+                        <ChildContent>
+                            <RadzenTextBox Name="Password" @bind-Value=@model.Password />
+                        </ChildContent>
+                        <Helper>
+                            <RadzenRequiredValidator Component="Password" Text="Password is required." />
+                        </Helper>
+                    </RadzenFormField>
+                    <RadzenButton ButtonType="ButtonType.Submit" Text="Submit"></RadzenButton>
+                </RadzenStack>
+            </RadzenTemplateForm>
+        </div>
+    </div>
+</div>
+
+
 
 @code {
+    LoginUserViewModel model = new() { };
 
+    private async Task LoginAsync()
+    {
+        var data = await _authService.LoginAsync(model);
+
+        if (data.IsSucceeded)
+        {
+            _navigationManager.NavigateTo("/");
+        }
+        else
+        {
+            await _modalManager.ShowMessageAsync("Login Error", data.Message);
+        }
+
+    }
 }

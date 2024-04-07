@@ -1,9 +1,4 @@
-﻿namespace MealOrdering.Client.Models.ViewModels.Users
-{
-    public class AddUserViewModel
-    {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string EmailAddress { get; set; }
-    }
-}
+﻿namespace MealOrdering.Client.Models.ViewModels.Users;
+
+public record AddUserViewModel(string Firstname, string Lastname, string EmailAddress);
+

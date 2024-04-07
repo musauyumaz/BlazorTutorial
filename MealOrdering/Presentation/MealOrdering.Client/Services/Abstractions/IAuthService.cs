@@ -5,5 +5,5 @@ namespace MealOrdering.Client.Services.Abstractions;
 
 public interface IAuthService
 {
-    Task<BaseResponse<LoginResponseViewModel>> LoginAsync();
+    Task<BaseResponse<LoginResponseViewModel>> LoginAsync(LoginUserViewModel loginUserViewModel);
 }
