@@ -1,9 +1,13 @@
 ﻿@page "/login"
+
+
 @layout MealOrdering.Client.Layout.EmptyLayout
 
 @inject IAuthService _authService
 @inject ModalManager _modalManager;
 @inject NavigationManager _navigationManager;
+@inject ILocalStorageService _localStorageService;
+@inject AuthenticationStateProvider _authenticationStateProvider;
 
 
 <div class="container-fluid h-100">
@@ -41,10 +45,16 @@
 
     private async Task LoginAsync()
     {
-        var data = await _authService.LoginAsync(model);
+        BaseResponse<LoginResponseViewModel> data = await _authService.LoginAsync(model);
 
         if (data.IsSucceeded)
         {
+            await _localStorageService.SetItemAsync("token", data.Data.Token.AccessToken);
+            await _localStorageService.SetItemAsync("email", data.Data.User.EmailAddress);
+
+            (_authenticationStateProvider as AuthStateProvider).NotifyUserLogin(data.Data.User.EmailAddress);
+            await _authService.SetAuthorization(new("Bearer", data.Data.Token.AccessToken));
+
             _navigationManager.NavigateTo("/");
         }
         else

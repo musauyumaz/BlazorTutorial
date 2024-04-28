@@ -9,7 +9,7 @@ namespace Application.Features.Suppliers.Queries.GetAll;
 
 public record GetAllSupplierQueryRequest : IRequest<IDataResult<List<GetAllSupplierQueryResponse>>>;
 public record GetAllSupplierQueryResponse(string Id, string Name, string WebURL, bool IsActive);
-public class GetAllSupplierQueryHandler(ISupplierRepository _supplierRepository) : IRequestHandler<GetAllSupplierQueryRequest, IDataResult<List<GetAllSupplierQueryResponse>>>
+public class GetAllSupplierQueryHandler(IBaseRepository<Supplier> _supplierRepository) : IRequestHandler<GetAllSupplierQueryRequest, IDataResult<List<GetAllSupplierQueryResponse>>>
 {
     public async ValueTask<IDataResult<List<GetAllSupplierQueryResponse>>> Handle(GetAllSupplierQueryRequest request, CancellationToken cancellationToken)
     {

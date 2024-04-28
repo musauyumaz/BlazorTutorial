@@ -9,7 +9,7 @@ using Mediator;
 namespace Application.Features.Users.Commands.Update;
 
 public record UpdateUserCommandRequest(string Id, string FirstName, string LastName, string EmailAddress, bool IsActive) : IRequest<IDataResult<UserDTO>>;
-public class UpdateUserCommandHandler(IUserRepository _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<UpdateUserCommandRequest, IDataResult<UserDTO>>
+public class UpdateUserCommandHandler(IBaseRepository<User> _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<UpdateUserCommandRequest, IDataResult<UserDTO>>
 {
     public async ValueTask<IDataResult<UserDTO>> Handle(UpdateUserCommandRequest request, CancellationToken cancellationToken)
     {

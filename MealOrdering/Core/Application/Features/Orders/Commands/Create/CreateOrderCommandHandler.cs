@@ -8,7 +8,7 @@ using Mediator;
 namespace Application.Features.Orders.Commands.Create;
 
 public record CreateOrderCommandRequest(string CreateUserId, string SupplierId, string Name, string Description, DateTime ExpireDate) : IRequest<IDataResult<OrderDTO>>;
-public class CreateOrderCommandHandler(IOrderRepository _orderRepository) : IRequestHandler<CreateOrderCommandRequest, IDataResult<OrderDTO>>
+public class CreateOrderCommandHandler(IBaseRepository<Order> _orderRepository) : IRequestHandler<CreateOrderCommandRequest, IDataResult<OrderDTO>>
 {
     public async ValueTask<IDataResult<OrderDTO>> Handle(CreateOrderCommandRequest request, CancellationToken cancellationToken)
     {

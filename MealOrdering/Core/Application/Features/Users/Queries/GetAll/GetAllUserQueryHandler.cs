@@ -2,6 +2,7 @@
 using Application.Commons.Results;
 using Application.Features.Users.DTOs;
 using Application.Features.Users.Rules;
+using Domain.Entities.Identity;
 using Mapster;
 using Mediator;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Application.Features.Users.Queries.GetAll;
 
 public record GetAllUserQueryRequest : IRequest<IDataResult<List<UserDTO>>>;
-public class GetAllUserQueryHandler(IUserRepository _userRepository) : IRequestHandler<GetAllUserQueryRequest, IDataResult<List<UserDTO>>>
+public class GetAllUserQueryHandler(IBaseRepository<User> _userRepository) : IRequestHandler<GetAllUserQueryRequest, IDataResult<List<UserDTO>>>
 {
     public async ValueTask<IDataResult<List<UserDTO>>> Handle(GetAllUserQueryRequest request, CancellationToken cancellationToken)
     {

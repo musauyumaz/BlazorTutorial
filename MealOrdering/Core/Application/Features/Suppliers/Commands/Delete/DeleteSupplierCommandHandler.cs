@@ -8,7 +8,7 @@ using Mediator;
 namespace Application.Features.Suppliers.Commands.Delete;
 
 public record DeleteSupplierCommandRequest(string Id) : IRequest<IDataResult<SupplierDTO>>;
-public class DeleteSupplierCommandHandler(ISupplierRepository _supplierRepository) : IRequestHandler<DeleteSupplierCommandRequest, IDataResult<SupplierDTO>>
+public class DeleteSupplierCommandHandler(IBaseRepository<Supplier> _supplierRepository) : IRequestHandler<DeleteSupplierCommandRequest, IDataResult<SupplierDTO>>
 {
     public async ValueTask<IDataResult<SupplierDTO>> Handle(DeleteSupplierCommandRequest request, CancellationToken cancellationToken)
     {

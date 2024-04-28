@@ -1,0 +1,22 @@
+﻿@page "/logout"
+
+@inject ILocalStorageService _localStorageService;
+@inject AuthenticationStateProvider _authenticationStateProvider;
+@inject IAuthService _authService;
+@inject NavigationManager _navigationManager;
+
+@code {
+
+    protected async override Task OnInitializedAsync()
+    {
+        await _localStorageService.RemoveItemAsync("token");
+        await _localStorageService.RemoveItemAsync("email");
+
+        (_authenticationStateProvider as AuthStateProvider).NotifyUserLogout();
+        await _authService.SetAuthorization(null);
+
+        _navigationManager.NavigateTo("/login");
+    }
+
+}
+

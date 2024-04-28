@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Users.Rules;
 
-public class UserBusinessRules(IUserRepository _userRepository)
+public class UserBusinessRules(IBaseRepository<User> _userRepository)
 {
     public async Task UserNotFoundAsync(string id)
     {

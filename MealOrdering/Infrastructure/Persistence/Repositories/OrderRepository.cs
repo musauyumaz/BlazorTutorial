@@ -5,7 +5,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class OrderRepository(MealOrderingDbContext _context) : IOrderRepository
+    public class OrderRepository(MealOrderingDbContext _context) : IBaseRepository<Order>
     {
         public DbSet<Order> Table => _context.Set<Order>();
 

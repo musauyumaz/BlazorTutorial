@@ -6,12 +6,14 @@ using Application.Features.Users.DTOs;
 using Application.Features.Users.Queries.GetAll;
 using Application.Features.Users.Queries.GetById;
 using Mediator;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MealOrdering.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController(IMediator _mediator) : ControllerBase
     {
         [HttpGet]

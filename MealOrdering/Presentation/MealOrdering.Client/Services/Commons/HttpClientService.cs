@@ -15,6 +15,8 @@ public class HttpClientService : IHttpClientService
         _configuration = configuration;
     }
 
+    public HttpClient Client => _httpClient;
+
     public async Task<TResponse> DeleteAsync<TResponse>(RequestParameter requestParameter, string id)
     {
         StringBuilder urlBuilder = new StringBuilder();
