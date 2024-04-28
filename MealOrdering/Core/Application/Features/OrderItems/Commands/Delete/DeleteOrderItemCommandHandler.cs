@@ -8,7 +8,7 @@ using Mediator;
 namespace Application.Features.OrderItems.Commands.Delete;
 
 public record DeleteOrderItemCommandRequest(string Id) : IRequest<IDataResult<OrderItemDTO>>;
-public class DeleteOrderItemCommandHandler(IOrderItemRepository _orderItemRepository) : IRequestHandler<DeleteOrderItemCommandRequest, IDataResult<OrderItemDTO>>
+public class DeleteOrderItemCommandHandler(IBaseRepository<OrderItem> _orderItemRepository) : IRequestHandler<DeleteOrderItemCommandRequest, IDataResult<OrderItemDTO>>
 {
     public async ValueTask<IDataResult<OrderItemDTO>> Handle(DeleteOrderItemCommandRequest request, CancellationToken cancellationToken)
     {

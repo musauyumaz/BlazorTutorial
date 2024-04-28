@@ -1,4 +1,5 @@
 ﻿using Application.Commons.Abstractions.Repositories;
+using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,10 +19,10 @@ namespace Persistence
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
-            services.AddScoped<ISupplierRepository, SupplierRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+            services.AddScoped<IBaseRepository<Supplier>, SupplierRepository>();
+            services.AddScoped<IBaseRepository<User>, UserRepository>();
+            services.AddScoped<IBaseRepository<Order>, OrderRepository>();
+            services.AddScoped<IBaseRepository<OrderItem>, OrderItemRepository>();
         }
     }
 }

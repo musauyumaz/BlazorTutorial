@@ -9,7 +9,7 @@ using Mediator;
 namespace Application.Features.Users.Queries.GetById;
 
 public record GetByIdUserQueryRequest(string Id) : IRequest<IDataResult<UserDTO>>;
-public class GetByIdUserQueryHandler(IUserRepository _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<GetByIdUserQueryRequest, IDataResult<UserDTO>>
+public class GetByIdUserQueryHandler(IBaseRepository<User> _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<GetByIdUserQueryRequest, IDataResult<UserDTO>>
 {
     public async ValueTask<IDataResult<UserDTO>> Handle(GetByIdUserQueryRequest request, CancellationToken cancellationToken)
     {

@@ -9,7 +9,7 @@ namespace Application.Features.Suppliers.Commands.Create;
 
 public record CreateSupplierCommandRequest(string Name, string WebUrl) : IRequest<IDataResult<SupplierDTO>>;
 
-public class CreateSupplierCommandHandler(ISupplierRepository _supplierRepository) : IRequestHandler<CreateSupplierCommandRequest, IDataResult<SupplierDTO>>
+public class CreateSupplierCommandHandler(IBaseRepository<Supplier> _supplierRepository) : IRequestHandler<CreateSupplierCommandRequest, IDataResult<SupplierDTO>>
 {
     public async ValueTask<IDataResult<SupplierDTO>> Handle(CreateSupplierCommandRequest request, CancellationToken cancellationToken)
     {

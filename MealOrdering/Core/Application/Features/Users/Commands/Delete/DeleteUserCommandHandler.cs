@@ -2,6 +2,7 @@
 using Application.Commons.Results;
 using Application.Features.Users.DTOs;
 using Application.Features.Users.Rules;
+using Domain.Entities;
 using Domain.Entities.Identity;
 using Mapster;
 using Mediator;
@@ -9,7 +10,7 @@ using Mediator;
 namespace Application.Features.Users.Commands.Delete;
 
 public record DeleteUserCommandRequest(string Id) : IRequest<IDataResult<UserDTO>>;
-public class DeleteUserCommandHandler(IUserRepository _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<DeleteUserCommandRequest, IDataResult<UserDTO>>
+public class DeleteUserCommandHandler(IBaseRepository<User> _userRepository, UserBusinessRules _userBusinessRules) : IRequestHandler<DeleteUserCommandRequest, IDataResult<UserDTO>>
 {
     public async ValueTask<IDataResult<UserDTO>> Handle(DeleteUserCommandRequest request, CancellationToken cancellationToken)
     {

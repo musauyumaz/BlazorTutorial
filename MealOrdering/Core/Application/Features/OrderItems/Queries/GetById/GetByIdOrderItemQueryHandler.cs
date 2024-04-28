@@ -8,7 +8,7 @@ using Mediator;
 namespace Application.Features.OrderItems.Queries.GetById;
 
 public record GetByIdOrderItemQueryRequest(string Id) : IRequest<IDataResult<OrderItemDTO>>;
-public class GetByIdOrderItemQueryHandler(IOrderItemRepository _orderItemRepository) : IRequestHandler<GetByIdOrderItemQueryRequest, IDataResult<OrderItemDTO>>
+public class GetByIdOrderItemQueryHandler(IBaseRepository<OrderItem> _orderItemRepository) : IRequestHandler<GetByIdOrderItemQueryRequest, IDataResult<OrderItemDTO>>
 {
     public async ValueTask<IDataResult<OrderItemDTO>> Handle(GetByIdOrderItemQueryRequest request, CancellationToken cancellationToken)
     {

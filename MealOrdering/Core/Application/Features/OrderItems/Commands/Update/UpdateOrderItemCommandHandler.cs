@@ -8,7 +8,7 @@ using Mediator;
 namespace Application.Features.OrderItems.Commands.Update;
 
 public record UpdateOrderItemCommandRequest() : IRequest<IDataResult<OrderItemDTO>>;
-public class UpdateOrderItemCommandHandler(IOrderItemRepository _orderItemRepository) : IRequestHandler<UpdateOrderItemCommandRequest, IDataResult<OrderItemDTO>>
+public class UpdateOrderItemCommandHandler(IBaseRepository<OrderItem> _orderItemRepository) : IRequestHandler<UpdateOrderItemCommandRequest, IDataResult<OrderItemDTO>>
 {
     public async ValueTask<IDataResult<OrderItemDTO>> Handle(UpdateOrderItemCommandRequest request, CancellationToken cancellationToken)
     {

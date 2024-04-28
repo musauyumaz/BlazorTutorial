@@ -1,4 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using System.Security.Claims
+@inherits LayoutComponentBase
+
+@inject ILocalStorageService _localStorageService;
+@inject NavigationManager _navigationManager;
 
 <RadzenDialog />
 <RadzenContextMenu />
@@ -20,4 +24,27 @@
     @*  <RadzenFooter>
     </RadzenFooter> *@
 </RadzenLayout>
+@code
+{
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthenticationState { get; set; }
 
+    [Inject]
+    ILocalStorageService LocalStorageService{ get; set; }
+
+    private string loginStr = "about";
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            // authState.User.Claims.FirstOrDefault(i => i.ValueType == ClaimTypes.Email);
+            loginStr = await _localStorageService.GetItemAsStringAsync("email");
+        }
+        else
+        {
+            _navigationManager.NavigateTo("/login");
+        }
+    }
+}

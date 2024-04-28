@@ -1,11 +1,12 @@
 ﻿using Application.Commons.Abstractions.Repositories;
+using Domain.Entities;
 using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Mail;
 
 namespace Application.Features.Auths.Rules
 {
-    public class AuthBusinessRules(IUserRepository _userRepository)
+    public class AuthBusinessRules(IBaseRepository<User> _userRepository)
     {
         public async Task UserNotFoundAsync(string emailAddress)
         {
@@ -18,10 +19,10 @@ namespace Application.Features.Auths.Rules
             if (!user.IsActive) throw new Exception("User is Passive");
         }
 
-        public async Task UserPasswordOrEmailAddressNotFound(string email, string password)
+        public async Task UserPasswordEmailAddressNotFound(string email, string password)
         {
             User? user = await _userRepository.Table.FirstOrDefaultAsync(u => u.EmailAddress == email && u.Password == password);
-            if (user == null) throw new Exception("User Password Or Email Not Found");
+            if (user == null) throw new Exception("User Email Not Found");
         }
     }
 }

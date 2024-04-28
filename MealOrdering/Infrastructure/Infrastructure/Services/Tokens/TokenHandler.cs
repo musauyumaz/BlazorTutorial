@@ -29,7 +29,7 @@ namespace Infrastructure.Services.Tokens
                 new Claim(ClaimTypes.Name,stringBuilder.ToString())
             };
 
-            JwtSecurityToken? token = new(issuer: _configuration["JwtToken:Issuer"], audience: _configuration["JwtToken:Audience"], claims: claims, expires: expiry);
+            JwtSecurityToken? token = new(issuer: _configuration["JwtToken:Issuer"], audience: _configuration["JwtToken:Audience"], claims: claims, expires: expiry, signingCredentials: credentials);
 
             string tokenStr = new JwtSecurityTokenHandler().WriteToken(token);
             return new(tokenStr, expiry, CreateRefreshToken());
